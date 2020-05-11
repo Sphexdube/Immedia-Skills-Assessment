@@ -327,10 +327,10 @@ This repository contains the source code of the _Immedia-Skills-Assessment_. The
     "Configuration": {
       "Uri": "https://api.foursquare.com/v2", 	
       "Version": 20200509,						
-      "Radius": 1000, 							// Limit results to venues within this many meters of the specified location.
-      "Intent": "browse", 						// Browse searches an entire region instead of only finding venues closest to a point.
-      "limit": 10, 								// Number of results returned.
-      "CategoryId": "4d4b7104d754a06370d81259" 	// Arts & Entertainment Category Id that enables landmarks to be retrieved for a location.
+      "Radius": 1000, 							<!--- Limit results to venues within this many meters of the specified location. -->
+      "Intent": "browse", 						<!--- Browse searches an entire region instead of only finding venues closest to a point. -->
+      "limit": 10, 								<!--- Number of results returned. -->
+      "CategoryId": "4d4b7104d754a06370d81259" 	<!--- Arts & Entertainment Category Id that enables landmarks to be retrieved for a location. -->
     }
   }
 }
