@@ -17,7 +17,7 @@ namespace Assessment.API.Controllers
     }
 
     [HttpGet("venues/{locationName}")]
-    public async Task<IActionResult> VenuesByNameAsync(string locationName)
+    public async Task<IActionResult> VenuesByNameAsync([Required] string locationName)
     {
       var result = await _locationService.GetVenuesByNameAsync(locationName).ConfigureAwait(false);
 
