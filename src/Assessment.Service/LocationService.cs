@@ -12,14 +12,14 @@ namespace Assessment.Service
 {
   public class LocationService : ILocationService
   {
-    private string clientId;
-    private string clientSecret;
-    private string uri;
-    private long version;
-    private int radius;
-    private string intent;
-    private int limit;
-    private string categoryId;
+    private readonly string clientId;
+    private readonly string clientSecret;
+    private readonly string uri;
+    private readonly long version;
+    private readonly int radius;
+    private readonly string intent;
+    private readonly int limit;
+    private readonly string categoryId;
 
     private readonly HttpClient _httpClient;
     private readonly FoursquareCredentials _foursquareCredentials;
