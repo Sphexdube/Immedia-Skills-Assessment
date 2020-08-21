@@ -1,7 +1,6 @@
 ﻿using Assessment.Domain.Interfaces;
 using Assessment.Domain.Models;
 using Assessment.Domain.Models.Common;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,14 +11,14 @@ namespace Assessment.Service
 {
   public class LocationService : ILocationService
   {
-    private readonly string clientId;
-    private readonly string clientSecret;
-    private readonly string uri;
-    private readonly long version;
-    private readonly int radius;
-    private readonly string intent;
-    private readonly int limit;
-    private readonly string categoryId;
+    private string clientId;
+    private string clientSecret;
+    private string uri;
+    private long version;
+    private int radius;
+    private string intent;
+    private int limit;
+    private string categoryId;
 
     private readonly HttpClient _httpClient;
     private readonly FoursquareCredentials _foursquareCredentials;

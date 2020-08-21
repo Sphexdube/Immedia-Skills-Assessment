@@ -1,6 +1,7 @@
 ﻿using Assessment.Domain.Interfaces;
 using Assessment.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 
@@ -17,7 +18,8 @@ namespace Assessment.API.Controllers
     }
 
     [HttpGet("venues/{locationName}")]
-    public async Task<IActionResult> VenuesByNameAsync([Required] string locationName)
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
+    public async Task<IActionResult> VenuesByNameAsync(string locationName)
     {
       var result = await _locationService.GetVenuesByNameAsync(locationName).ConfigureAwait(false);
 
@@ -25,6 +27,7 @@ namespace Assessment.API.Controllers
     }
 
     [HttpPost("venues")]
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
     public async Task<IActionResult> VenuesByGPSCoordinatesAsync([FromBody] LocatiionCoordinates locatiionCoordinates)
     {
       var result = await _locationService.GetVenuesByGPSCoordinatesAsync(locatiionCoordinates).ConfigureAwait(false);
@@ -33,6 +36,7 @@ namespace Assessment.API.Controllers
     }
 
     [HttpGet("venues/{venueId}/venue/images")]
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
     public async Task<IActionResult> VenueImagesAsync([Required] string venueId)
     {
       var result = await _locationService.GetVenueImagesAsync(venueId).ConfigureAwait(false);
@@ -41,6 +45,7 @@ namespace Assessment.API.Controllers
     }
 
     [HttpGet("venues/{photoId}/image/details")]
+    [ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
     public async Task<IActionResult> ImageDetailsAsync([Required] string photoId)
     {
       var result = await _locationService.GetImageDetailsAsync(photoId).ConfigureAwait(false);

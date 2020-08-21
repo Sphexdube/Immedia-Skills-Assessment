@@ -39,6 +39,8 @@ namespace Assessment.API
       services.TryAddSingleton<HttpClient>();
       services.TryAddSingleton<IDataService, DataService>();
       services.TryAddSingleton<ILocationService, LocationService>();
+
+      services.AddResponseCaching();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,6 +56,8 @@ namespace Assessment.API
       app.UseRouting();
 
       app.UseAuthorization();
+
+      app.UseResponseCaching();
 
       app.UseEndpoints(endpoints =>
       {
